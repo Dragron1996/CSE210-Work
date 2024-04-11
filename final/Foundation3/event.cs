@@ -1,0 +1,38 @@
+using System;
+
+public class Event
+{
+    private string _title;
+    private string _description;
+    private string _date;
+    private string _time;
+    private Address _address;
+
+    public Event(string title, string description, string date, string time, Address address)
+    {
+        _title = title;
+        _description = description;
+        _date = date;
+        _time = time;
+        _address = address;
+    }
+
+    public string GetStandard()
+    {
+        string standard = "Title: " + _title + "\n";
+        standard += "Description: " + _description + "\n";
+        standard += _date + " | " + _time + "\n";
+
+        string address = _address.GetAddress();
+        standard += address;
+        return standard;
+    }
+
+    public string GetBasic()
+    {
+        string basic = "Title: " + _title + "\n";
+
+        basic += _date + "\n";
+        return basic;
+    }
+}
